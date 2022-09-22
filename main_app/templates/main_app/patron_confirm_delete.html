@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Remove {{object.name}}?</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Remove Patron">
+    <a href="{% url 'patrons_detail' object.id %}">Cancel</a>
+</form>
+{% endblock %}

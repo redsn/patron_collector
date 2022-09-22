@@ -1,1 +1,17 @@
 {% extends 'base.html' %}
+
+{% block content%}
+<div class="detail-container">
+    <div class="detail-patron">
+        <h3>Name: {{patron.name}}</h3>
+        <p>Race: {{patron.race}}</p>
+        <p>Appearance: {{patron.appearance}}</p>
+        <p>Description: {{patron.description}}</p>
+    </div>
+    <div class="detail-modify">
+        <a href="{% url 'patron_update' patron.id%}">Update</a>
+        <a href="{% url 'patron_delete' patron.id%}">Delete</a>
+    </div>
+</div>
+
+{% endblock %}
