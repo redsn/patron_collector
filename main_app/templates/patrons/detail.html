@@ -52,7 +52,39 @@
     </div>
     <hr>
     <div class="service">
-        
+        <h1>Service Plans</h1>
+        <div>
+            <h1>Added</h1>
+            {% if patron.services.count %}
+            {% for service in patron.services.all %}
+            <div>
+                <p>{{service.name}}: {{service.job}} </p>
+                <p>${{service.price}}</p>
+            </div>
+            {% endfor %}
+            {% else %}
+            <h5>No Bonus Services</h5>
+            {% endif %}
+        </div>
+        <div>
+            <h1>To Be added</h1>
+            {% if servicenull.count %}
+            {% for service in servicenull %}
+            <div>
+                <p>{{service.name}}: {{service.job}} </p>
+                <p>${{service.price}}</p>
+            </div>
+            <div>
+                <form action="{% url 'assoc_service' patron.id service.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Add This Service">
+                </form>
+            </div>
+            {% endfor %}
+            {% else %}
+            <h5>No services left to add...</h5>
+            {% endif %}
+        </div>
     </div>
 </div>
 

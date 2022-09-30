@@ -8,6 +8,7 @@ urlpatterns = [
     path('patrons/<int:patron_id>/add_mealset/', views.add_mealset, name='add_mealset'),
     path('services/', views.services_index, name="services_index"),
     path('services/<int:service_id>/', views.services_detail, name="service_detail"),
+    path('patrons/<int:patron_id>/assoc_service/<int:service_id>/', views.assoc_service, name='assoc_service'),
     path('patrons/create', views.PatronCreate.as_view(), name="patron_create"),
     path('patrons/<int:pk>/update/', views.PatronUpdate.as_view(), name="patron_update"),
     path('patrons/<int:pk>/delete/', views.PatronDelete.as_view(), name="patron_delete"),
