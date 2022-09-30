@@ -38,3 +38,16 @@ class MealSet(models.Model):
         choices=MEALSTART,
         default=MEALSTART[0][0]
     )
+    meal_mid = models.CharField(
+        max_length=1,
+        choices=MEALMID,
+        default=MEALMID[0][0]
+    )
+    meal_end = models.CharField(
+        max_length=1,
+        choices=MEALEND,
+        default=MEALEND[0][0]
+    )
+    patron = models.ForeignKey(Patron, on_delete=models.CASCADE)
+    def __str__(self):
+        return f'{self.patron.name}\'s meals'
