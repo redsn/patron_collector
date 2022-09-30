@@ -30,20 +30,20 @@ class Patron(models.Model):
         return f'{self.name}'
     
     def get_absolute_url(self):
-        return reverse('patrons_detail', kwargs={'patron_id': self.id})
+        return reverse('patron_detail', kwargs={'patron_id': self.id})
 
 class MealSet(models.Model):
-    meal_start = models.CharField(
+    mealstart = models.CharField(
         max_length=1,
         choices=MEALSTART,
         default=MEALSTART[0][0]
     )
-    meal_mid = models.CharField(
+    mealmid = models.CharField(
         max_length=1,
         choices=MEALMID,
         default=MEALMID[0][0]
     )
-    meal_end = models.CharField(
+    mealend = models.CharField(
         max_length=1,
         choices=MEALEND,
         default=MEALEND[0][0]

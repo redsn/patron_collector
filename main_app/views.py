@@ -16,7 +16,8 @@ def patrons_index(request):
 
 def patrons_detail(request, patron_id):
     patron = Patron.objects.get(id=patron_id)
-    return render(request, 'patrons/detail.html', {'Title': 'Patron Details', 'patron': patron})
+    meal_form = MealSetForm()
+    return render(request, 'patrons/detail.html', {'Title': 'Patron Details', 'patron': patron, 'meal': meal_form })
 
 def add_mealset(request, patron_id):
     form = MealSetForm(request.POST)

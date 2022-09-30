@@ -13,6 +13,44 @@
         <a href="{% url 'patron_delete' patron.id%}">Delete</a>
     </div>
     <hr>
+    <div class="meal">
+        <form action="{% url 'add_mealset' patron.id %}" method="post">
+            {% csrf_token %}
+            {{ meal.as_p }}
+            <input type="submit" value="Send">
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Starter
+                    </th>
+                    <th>
+                        Main
+                    </th>
+                    <th>
+                        Closer
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for meal in patron.mealset_set.all %}
+                <tr>
+                    <td>
+                        {{meal.get_mealstart_display}}
+                    </td>
+                    <td>
+                        {{meal.get_mealmid_display}}
+                    </td>
+                    <td>
+                        {{meal.get_mealend_display}}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <hr>
 </div>
 
 {% endblock %}
