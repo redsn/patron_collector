@@ -14,5 +14,6 @@ urlpatterns = [
     path('patrons/<int:pk>/delete/', views.PatronDelete.as_view(), name="patron_delete"),
     path('services/create', views.ServiceCreate.as_view(), name='service_create'),
     path('services/<int:pk>/update/', views.ServiceUpdate.as_view(), name='service_update'),
-    path('services/<int:pk>/delete/', views.ServiceDelete.as_view(), name='service_delete')
+    path('services/<int:pk>/delete/', views.ServiceDelete.as_view(), name='service_delete'),
+    path('accounts/signup/', views.signup, name='signup')
 ]
