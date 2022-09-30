@@ -51,3 +51,14 @@ class MealSet(models.Model):
     patron = models.ForeignKey(Patron, on_delete=models.CASCADE)
     def __str__(self):
         return f'{self.patron.name}\'s meals'
+
+class Service(models.Model):
+    name = models.CharField(max_length=20)
+    job = models.CharField(max_length=100)
+    price = models.IntegerField()
+
+    def __str__(self):
+        return f'{self.name}: {self.job}'
+
+    def get_absolute_url(self):
+        return reverse('service_detail', kwargs={'service_id': self.id})

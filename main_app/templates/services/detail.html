@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <p>
+        Job: {{service.name}}
+    </p>
+    <p>
+        Description: {{service.job}}
+    </p>
+    <p>
+        Price: ${{service.price}}
+    </p>
+</div>
+
+{% endblock %}

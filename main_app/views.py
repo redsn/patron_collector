@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from .models import Patron, MealSet
+from .models import Patron, Service
 from .forms import MealSetForm
 
 # Create your views here.
@@ -27,6 +27,15 @@ def add_mealset(request, patron_id):
         new_meal.save()
     return redirect('patron_detail', patron_id=patron_id)
 
+def services_index(request):
+    services = Service.objects.all()
+    return render(request, 'services/index.html', {'Title': 'Services Index', 'services': services })
+
+def services_detail(request, service_id):
+    service = Service.objects.get(id=service_id)
+    return render(request, 'services/detail.html', {'Title': 'Service Details', 'service': service })
+
+
     
 
 class PatronCreate(CreateView):
@@ -40,3 +49,15 @@ class PatronUpdate(UpdateView):
 class PatronDelete(DeleteView):
     model = Patron
     success_url = '/patrons/'
+
+class ServiceCreate(CreateView):
+    model = Service
+    fields = '__all__'
+
+class ServiceUpdate(UpdateView):
+    model = Service
+    fields = '__all__'
+
+class ServiceDelete(DeleteView):
+    model = Service
+    success_url = '/services/'
