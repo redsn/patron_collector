@@ -19,6 +19,7 @@
             {{ meal.as_p }}
             <input type="submit" value="Send">
         </form>
+        <hr/>
         <table>
             <thead>
                 <tr>
@@ -57,7 +58,7 @@
             <h1>Added</h1>
             {% if patron.services.count %}
             {% for service in patron.services.all %}
-            <div>
+            <div class="service-box">
                 <p>{{service.name}}: {{service.job}} </p>
                 <p>${{service.price}}</p>
             </div>
@@ -70,7 +71,7 @@
             <h1>To Be added</h1>
             {% if servicenull.count %}
             {% for service in servicenull %}
-            <div>
+            <div class="service-box">
                 <p>{{service.name}}: {{service.job}} </p>
                 <p>${{service.price}}</p>
             </div>
