@@ -16,7 +16,6 @@ def home(request):
 
 ############## PATRONS
 
-@login_required
 def patrons_index(request):
     patrons = Patron.objects.all()
     return render(request, 'patrons/index.html', {'Title': 'Patron Index', 'patrons': patrons})

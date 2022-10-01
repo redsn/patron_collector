@@ -3,10 +3,10 @@
 <h1>Patrons</h1>
 
 {% for patron in patrons %}
-<a href="/patrons/{{patron.id}}"
+<a href="/patrons/{{patron.id}}">
     <div class="index-patron">
-    <h3>{{patron.name}}</h3>
-    <p>Race: {{patron.race}}</p>
+        <h3>{{patron.name}}</h3>
+        <p>Race: {{patron.race}}</p>
     </div>
 </a>
 {% endfor %}
