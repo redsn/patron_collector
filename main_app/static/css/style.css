@@ -15,6 +15,23 @@ a{
 ul{
     list-style: none;
 }
+
+.container form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2vh auto;
+    flex-direction: column;
+}
+.container form input{
+    margin: 10px;
+    border: 1px black solid;
+    padding: 1vh;
+}
+.container form textarea{
+    border: 1px solid black;
+    padding: 1vh;
+}
 .nav-home{
     font-size: xx-large;
     padding-top: 2vh;

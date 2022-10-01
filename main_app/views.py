@@ -69,7 +69,7 @@ def signup(request):
 
 class PatronCreate(LoginRequiredMixin, CreateView):
     model = Patron
-    fields = '__all__'
+    fields = ('name', 'race', 'appearance', 'description')
 
 class PatronUpdate(LoginRequiredMixin, UpdateView):
     model = Patron

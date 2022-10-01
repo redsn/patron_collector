@@ -74,12 +74,12 @@
             <div class="service-box">
                 <p>{{service.name}}: {{service.job}} </p>
                 <p>${{service.price}}</p>
-            </div>
-            <div>
-                <form action="{% url 'assoc_service' patron.id service.id %}" method="post">
-                    {% csrf_token %}
-                    <input type="submit" value="Add This Service">
-                </form>
+                <div>
+                    <form action="{% url 'assoc_service' patron.id service.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Add This Service">
+                    </form>
+                </div>
             </div>
             {% endfor %}
             {% else %}
